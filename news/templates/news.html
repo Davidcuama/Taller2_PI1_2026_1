@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mt-4">News</h2>
+
+<!-- Card horizontal para cada noticia -->
+<div class="container">
+    {% for news in newss %}
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ news.headline }}</h5>
+                    <p class="card-text">{{ news.body }}</p>
+                    <p class="card-text"><small class="text-muted">{{ news.date }}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>No hay noticias disponibles.</p>
+    {% endfor %}
+</div>
+{% endblock content %}
