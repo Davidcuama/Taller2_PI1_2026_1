@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-import matplotlib.pyplot as plt
 import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 import io
 import base64
 
@@ -23,7 +24,6 @@ def about(request):
 
 
 def statistics_view(request):
-    matplotlib.use('Agg')
 
     # --- Gráfica 1: Películas por año ---
     years = Movie.objects.values_list('year', flat=True).distinct().order_by('year')
